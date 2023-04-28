@@ -1,0 +1,12 @@
+version: "3"
+services:
+  app:
+    build: app
+    command: "gunicorn -b 0.0.0.0:5000 main:app"
+  balancer:
+    build: balancer
+    ports:
+     - "5000:5000"
+    command: "gunicorn -b 0.0.0.0:5000 main:app"
+
+
