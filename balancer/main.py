@@ -113,8 +113,10 @@ async def start_close_instances(server_list):
     while True:
         hosts = [host['host'] for host in server_list]
         rand_num1 = randint(0, 4)
-        rand_num2 = randint(0, 4)
-        rand_num2 = rand_num2 if rand_num2 != rand_num1 else randint(0, 4)
+        while True:
+            rand_num2 = randint(0, 4)
+            if rand_num2 != rand_num1:
+                break
         host1 = hosts[rand_num1]
         host2 = hosts[rand_num2]
 
